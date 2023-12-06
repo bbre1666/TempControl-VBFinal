@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -42,34 +43,42 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PreshurePictureBox = New System.Windows.Forms.PictureBox()
         Me.TimeLabel = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.TXTimer = New System.Windows.Forms.Timer(Me.components)
         Me.UPCoolingButtion = New System.Windows.Forms.Button()
         Me.UPHeatButton = New System.Windows.Forms.Button()
         Me.DownCoolingButton = New System.Windows.Forms.Button()
         Me.DownHeatButton = New System.Windows.Forms.Button()
+        Me.AdcValue1Label = New System.Windows.Forms.Label()
+        Me.ADCValue2Label = New System.Windows.Forms.Label()
+        Me.DigitalLabel = New System.Windows.Forms.Label()
+        Me.DelayTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.RoomTempLabel = New System.Windows.Forms.Label()
+        Me.SystemTempLabel = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PreshurePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 157)
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(301, 265)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(81, 61)
+        Me.PictureBox1.Size = New System.Drawing.Size(267, 173)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
         'PictureBox2
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(12, 79)
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(30, 111)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(81, 61)
+        Me.PictureBox2.Size = New System.Drawing.Size(228, 202)
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
         '
@@ -107,7 +116,6 @@ Partial Class Form1
         '
         'BaudRateToolStripComboBox
         '
-        Me.BaudRateToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BaudRateToolStripComboBox.Name = "BaudRateToolStripComboBox"
         Me.BaudRateToolStripComboBox.Size = New System.Drawing.Size(121, 28)
         '
@@ -120,7 +128,6 @@ Partial Class Form1
         '
         'ComPortToolStripComboBox
         '
-        Me.ComPortToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ComPortToolStripComboBox.Name = "ComPortToolStripComboBox"
         Me.ComPortToolStripComboBox.Size = New System.Drawing.Size(121, 28)
         '
@@ -182,27 +189,29 @@ Partial Class Form1
         '
         'PictureBox3
         '
-        Me.PictureBox3.Location = New System.Drawing.Point(135, 79)
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(30, 92)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox3.Size = New System.Drawing.Size(225, 221)
         Me.PictureBox3.TabIndex = 10
         Me.PictureBox3.TabStop = False
         '
         'PictureBox4
         '
-        Me.PictureBox4.Location = New System.Drawing.Point(135, 157)
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(12, 122)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox4.Size = New System.Drawing.Size(283, 191)
         Me.PictureBox4.TabIndex = 11
         Me.PictureBox4.TabStop = False
         '
-        'PictureBox5
+        'PreshurePictureBox
         '
-        Me.PictureBox5.Location = New System.Drawing.Point(282, 109)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(73, 57)
-        Me.PictureBox5.TabIndex = 12
-        Me.PictureBox5.TabStop = False
+        Me.PreshurePictureBox.Location = New System.Drawing.Point(327, 109)
+        Me.PreshurePictureBox.Name = "PreshurePictureBox"
+        Me.PreshurePictureBox.Size = New System.Drawing.Size(73, 57)
+        Me.PreshurePictureBox.TabIndex = 12
+        Me.PreshurePictureBox.TabStop = False
         '
         'TimeLabel
         '
@@ -213,9 +222,8 @@ Partial Class Form1
         Me.TimeLabel.TabIndex = 13
         Me.TimeLabel.Text = "Time"
         '
-        'Timer1
+        'TXTimer
         '
-        Me.Timer1.Interval = 250
         '
         'UPCoolingButtion
         '
@@ -253,17 +261,70 @@ Partial Class Form1
         Me.DownHeatButton.Text = "Down"
         Me.DownHeatButton.UseVisualStyleBackColor = True
         '
+        'AdcValue1Label
+        '
+        Me.AdcValue1Label.AutoSize = True
+        Me.AdcValue1Label.Location = New System.Drawing.Point(619, 260)
+        Me.AdcValue1Label.Name = "AdcValue1Label"
+        Me.AdcValue1Label.Size = New System.Drawing.Size(48, 16)
+        Me.AdcValue1Label.TabIndex = 18
+        Me.AdcValue1Label.Text = "Label3"
+        '
+        'ADCValue2Label
+        '
+        Me.ADCValue2Label.AutoSize = True
+        Me.ADCValue2Label.Location = New System.Drawing.Point(619, 289)
+        Me.ADCValue2Label.Name = "ADCValue2Label"
+        Me.ADCValue2Label.Size = New System.Drawing.Size(48, 16)
+        Me.ADCValue2Label.TabIndex = 19
+        Me.ADCValue2Label.Text = "Label4"
+        '
+        'DigitalLabel
+        '
+        Me.DigitalLabel.AutoSize = True
+        Me.DigitalLabel.Location = New System.Drawing.Point(619, 322)
+        Me.DigitalLabel.Name = "DigitalLabel"
+        Me.DigitalLabel.Size = New System.Drawing.Size(48, 16)
+        Me.DigitalLabel.TabIndex = 20
+        Me.DigitalLabel.Text = "Label5"
+        '
+        'DelayTimer
+        '
+        '
+        'RoomTempLabel
+        '
+        Me.RoomTempLabel.AutoSize = True
+        Me.RoomTempLabel.Location = New System.Drawing.Point(708, 260)
+        Me.RoomTempLabel.Name = "RoomTempLabel"
+        Me.RoomTempLabel.Size = New System.Drawing.Size(48, 16)
+        Me.RoomTempLabel.TabIndex = 21
+        Me.RoomTempLabel.Text = "Label5"
+        '
+        'SystemTempLabel
+        '
+        Me.SystemTempLabel.AutoSize = True
+        Me.SystemTempLabel.Location = New System.Drawing.Point(708, 289)
+        Me.SystemTempLabel.Name = "SystemTempLabel"
+        Me.SystemTempLabel.Size = New System.Drawing.Size(48, 16)
+        Me.SystemTempLabel.TabIndex = 22
+        Me.SystemTempLabel.Text = "Label5"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.SystemTempLabel)
+        Me.Controls.Add(Me.RoomTempLabel)
+        Me.Controls.Add(Me.DigitalLabel)
+        Me.Controls.Add(Me.ADCValue2Label)
+        Me.Controls.Add(Me.AdcValue1Label)
         Me.Controls.Add(Me.DownHeatButton)
         Me.Controls.Add(Me.DownCoolingButton)
         Me.Controls.Add(Me.UPHeatButton)
         Me.Controls.Add(Me.UPCoolingButtion)
         Me.Controls.Add(Me.TimeLabel)
-        Me.Controls.Add(Me.PictureBox5)
+        Me.Controls.Add(Me.PreshurePictureBox)
         Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.Label2)
@@ -283,7 +344,7 @@ Partial Class Form1
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PreshurePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -306,13 +367,19 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PreshurePictureBox As PictureBox
     Friend WithEvents TimeLabel As Label
-    Friend WithEvents Timer1 As Timer
+    Friend WithEvents TXTimer As Timer
     Friend WithEvents SaveSettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UPCoolingButtion As Button
     Friend WithEvents UPHeatButton As Button
     Friend WithEvents DownCoolingButton As Button
     Friend WithEvents DownHeatButton As Button
+    Friend WithEvents AdcValue1Label As Label
+    Friend WithEvents ADCValue2Label As Label
+    Friend WithEvents DigitalLabel As Label
+    Friend WithEvents DelayTimer As Timer
+    Friend WithEvents RoomTempLabel As Label
+    Friend WithEvents SystemTempLabel As Label
 End Class
